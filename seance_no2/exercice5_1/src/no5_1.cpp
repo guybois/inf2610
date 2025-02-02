@@ -16,10 +16,12 @@ int main() {
       if (fork()) { // Même commentaire que précédemment
          printf("message2\n");
       }
-      else { _exit(0); }
+      else { _exit(0); }     // Le 2e fils passe de running à zombie
    }
-   else { printf("message3\n"); }
-   while(wait(NULL)>0);
+   else { printf("message3\n"); }   // Le 1er fils affiche message3
+   while(wait(NULL)>0);  // Le père et le fils passent ici: 
+                         // Comme le fils n'a pas d'enfant alors wait retournera -1 (erreur) et donc le fils passe immédiatement le while
+                         // Le père a un fils et fera une itération dans la boucle avant de recevoir 
    _exit(0);
 } 
 
