@@ -17,10 +17,11 @@ int main()
           if(fork() ==0 )
           {
               printf("pid = %d , ppid = %d \n", getpid(), getppid());
-              _exit(0);
+              _exit(0);   
           }
       }
   printf("pid=%d \n", getpid());
+   // Par rapport à la solution, on utilise ici un repeat: tant que nb est plus grand que 0 on synchrone la terminaison avec les fils
   do
   {
       nb = wait(NULL);
