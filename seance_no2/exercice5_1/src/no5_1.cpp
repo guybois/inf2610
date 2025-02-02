@@ -11,9 +11,9 @@ Code, Compile, Run and Debug online from anywhere in world.
 #include <sys/wait.h>
 int main() {
    printf("message0\n");
-   if (fork()) {
+   if (fork()) {   // Attention ici on teste d'abord le père (plus grand que 0) et non le fils comme dans les exercices précédents
       printf("message1\n");
-      if (fork()) {
+      if (fork()) { // Même commentaire que précédemment
          printf("message2\n");
       }
       else { _exit(0); }
