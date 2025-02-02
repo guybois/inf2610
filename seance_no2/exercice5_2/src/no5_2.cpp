@@ -12,7 +12,8 @@ Code, Compile, Run and Debug online from anywhere in world.
 int main() {
    printf("message0\n");
    if (fork()) {
-      wait(NULL); // pour 2
+      wait(NULL); // on force ici le père à attendre son fils qui ira alors exécuté la ligne 22 
+                  // Le père va débloquer quand le fils fera son _exit(0) à la ligne 25 et il fera print des messages 1 et 2
       printf("message1\n");
       if (fork()) {
          printf("message2\n");
