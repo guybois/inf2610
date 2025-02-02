@@ -16,20 +16,12 @@ int main()
         {   glob=glob-1;
             printf("ici fils pid=%d, glob=%d, @glob=%p\n", 
                      getpid(), glob, &glob);
-            _exit(glob);  
+            _exit(glob);  // La différence par rapport à exercice3_2 est qu'ici on passe un pointeur sur glob avant de devenir zombie
         }
-        int x; wait(&x); 
+        int x; wait(&x); // La valeur de glob du fil est récupéré dans le pointeur x
         glob=glob+1;
         printf("ici pere pid=%d, glob=%d, @glob=%p, glob du fils = %d\n",
-                 getpid(), glob, &glob, WEXITSTATUS(x));
+                 getpid(), glob, &glob, WEXITSTATUS(x));   //WEXITSTATUS permet l'affichage de x
     return 0;
 }
 
-// 1- ici fils pid=5751, glob=99                                                                
-//    ici pere pid=5750, glob=101 
-// 2- ici fils pid=14908, glob=99, @glob=0x601060                                               
-//    ici pere pid=14907, glob=101, @glob=0x601060  
-// oui il s'agit de la même adresse virtuelle. L'espace d'adressage du fils 
-// est une copie de celle de son père. La variable glob a la même adresse 
-// virtuelle dans chacun des deux espaces virtuelles.
-// 3 - oui  
