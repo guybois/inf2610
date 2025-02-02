@@ -21,7 +21,8 @@ int main()
           }
       }
   printf("pid=%d \n", getpid());
-   // Par rapport à la solution, on utilise ici un repeat: tant que nb est plus grand que 0 on synchrone la terminaison avec les fils
+   // Par rapport à la solution et pour mieux comprendre on utilise ici un repeat: 
+   // tant que nb est plus grand que 0 on synchrone la terminaison avec les fils
   do
   {
       nb = wait(NULL);
