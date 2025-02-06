@@ -15,12 +15,12 @@ int main()
 {  pid_t pid = fork(); 
    if(pid==0)
   {  printf("Fils : je vais rentrer en pause \n"); 
- //    pause(); 
+     pause(); 
      printf("Fils : je suis sorti de ma pause \n");
      return 0; 
  }
    sleep(2);
- //  kill(pid, SIGUSR1);   // On est sensible à SIGUSR1
+   kill(pid, SIGUSR1);   // On est sensible à SIGUSR1
    int s;  wait(&s);
    if(WIFEXITED(s)) // true ssi la terminaison est normale
         printf("Fin normale : %d\n", WEXITSTATUS(s));
