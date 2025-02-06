@@ -1,1 +1,1 @@
-// voir exemple6
+// même chose que voir l'exemple6
