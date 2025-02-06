@@ -20,7 +20,7 @@ int pid[MaxJoueurs];
 void action(int sig)
 {
     for (int i = 0; i < MaxJoueurs; i++)
-     {kill(pid[i],SIGKILL);}  
+     {kill(pid[i],SIGKILL);}    // Un peu plus violent que le _exit() car on on arrête subitement le fils, donc fuite possible de ressources...
     printf("Fils ont fini de jouer \n");  
 }
 
