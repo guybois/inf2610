@@ -21,8 +21,9 @@ int main()
           }
       }
   printf("pid=%d \n", getpid());
-   // Par rapport à la solution et pour mieux comprendre on utilise ici un repeat: 
-   // tant que nb est plus grand que 0 on synchrone la terminaison avec les fils
+   // Par rapport au solutionnaire, pour mieux comprendre, ici on utilise  un repeat: 
+   // tant que nb est plus grand que 0 on synchrone la terminaison avec les 5 fils
+   // i.e. tant qu'on a des fils on attend qu'il soit zombie pour les faire terminer
   do
   {
       nb = wait(NULL);
