@@ -21,6 +21,7 @@ int main()
       }
       printf("pid=%d \n", getpid());
        int pid;
+       // WIFEXITED(status) vérifie si le fils s'est terminé normalement (valeur non nulle si le processus s'est terminé normalement)
       while((pid=wait(&i))>0) 
       {     if( WIFEXITED(i)) { printf(" fin normale du fils de pid= %d \n", pid); }
              else printf(" fin anormale du fils de pid= %d \n", pid);
