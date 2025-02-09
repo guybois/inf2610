@@ -16,7 +16,7 @@ int main()
           if(fork() ==0 )
           {
               printf("pid = %d , ppid = %d \n", getpid(), getppid());
-              _exit(0);
+              _exit(0); // Le fils passe de running à zombie
           }
       }
       printf("pid=%d \n", getpid());
