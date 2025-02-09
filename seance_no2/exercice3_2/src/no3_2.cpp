@@ -12,13 +12,16 @@ Code, Compile, Run and Debug online from anywhere in world.
 int glob=100;
 int main()
 {
-  if(fork()==0)
-    { glob=glob-1;
-      printf("ici fils pid=%d, glob=%d, @glob=%p\n", getpid(), glob, &glob); 
-      _exit(0);
-    }
-  int x; wait(&x);
-  glob=glob+1;
-  printf("ici pere pid=%d, glob=%d, @glob=%p\n", getpid(), glob, &glob);
-  return 0;
+       if(fork()==0)
+        {   glob=glob-1;
+            printf("ici fils pid=%d, glob=%d, @glob=%p\n", 
+                     getpid(), glob, &glob);
+            _exit(glob);  
+        }
+        int x; wait(&x); 
+        glob=glob+1;
+        // WEXITSTATUS(status) extrait le parametre de retour du fils, ici la valeur glob du fils
+        printf("ici pere pid=%d, glob=%d, @glob=%p, glob du fils = %d\n",
+                 getpid(), glob, &glob, WEXITSTATUS(x));
+    return 0;
 }
