@@ -17,7 +17,7 @@ Suite de l'exemple2_1 qui montre l'utilisation de pthread_cancel et PTHREAD_CANC
 void *mthread(void *taille)
 {    // allouer dynamiquement un tableau 
 
-// Simuler une protection du thread à un pthread_cancel - si vous mettre la ligne suivante n'est pas en commentaire on aura une fin normale et sinon anormale...
+// Simuler une protection du thread à un pthread_cancel - si la ligne suivante n'est pas en commentaire on aura une fin anormale...
     pthread_setcancelstate(PTHREAD_CANCEL_DISABLE,NULL);
     long*tab = (long*) malloc ( (long)taille*sizeof(long));
     sleep(2); // attendre 2 s
@@ -39,7 +39,7 @@ int main() {
     if(pthread_create(&th,NULL,mthread,(void*)5))   return 1;
 
     // Pendant que le thread ci-haut attend 2 sec., le thread pricipal (main) va le cancellé...
-    // Si le thread ci-haut ne s'est pas prémuni de la ligne 21 (i.e. il peut être cancellé) le thread ci-haut aura une fin anormale  avec l'instruction suivante:
+    // Si le thread ci-haut ne s'est pas prémuni de la ligne 21 (i.e. il peut être cancellé) ce dernier aura alors une fin anormale avec l'instruction suivante:
     pthread_cancel(th);
 
     pthread_join(th, (void**) &pstatus);
