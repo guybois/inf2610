@@ -6,4 +6,5 @@ Le thread T1() appelle les fonctions funcU() et funcX(), le thread T2() les fonc
 les fonction funcW() et funcZ(). Écrivez le code des thread T1(), T2() et T3() en veillant à ce que l’ordre d’appel des 
 fonction (U, V, W, X, Y, Z) soit respecté.
 
-Notez que les exercices 4 et 5 sont similaires à celui-ci.  
+Notez que les exercices 4 et 5 sont similaires à celui-ci en ce sens que ce sont des problèmes pour synchroniser des threads 
+entre eux et non faire de l'exclusion mutuelle.
