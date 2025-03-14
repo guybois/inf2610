@@ -1,3 +1,2 @@
-Un groupe de 3 amis se donnent rendez-vous au cinéma. Ils doivent s'attendre à l'entrée du cinéma. Ensuite, ils entrent ensemble et assistent à la projection d’un 
-film. Le comportement de chaque ami, est simulé par la fonction ami.
-Faites une 
+Ce code propose une implémentation différente de l'exercices no 4 de la semaine 5: Considérez le code ci-contre qui crée 3 threads T0, T1 et T2 qui exécutent chacun la fonction f.   Synchronisez les cycles (les itérations) des threads, à  l’aide variables de condition POSIX et de mutex, de manière à ce que les cycles s’exécutent dans l’ordre suivant : 
+cycle de T0;  cycle de T1;  cycle de  T2;  cycle de T0; cycle de T1; cycle de T2; etc.
