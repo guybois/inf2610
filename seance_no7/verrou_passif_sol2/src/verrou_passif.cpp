@@ -61,6 +61,7 @@ void *loquet_passif(void * param) {
 		nbw--;;
 		pthread_cond_signal(&wq); 
 	}
+	else lock = 0;
 	pthread_mutex_unlock(&acces);
 	printf ( "thread no %d libere la section critique\n", thread_no); 
 		
