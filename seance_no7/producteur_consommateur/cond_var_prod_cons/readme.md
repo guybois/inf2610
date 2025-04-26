@@ -5,23 +5,23 @@ N.B. On omet producer_done pour raison de simplification
 
 Le problème peut survenir avec les 7 étapes suivantes: 
 
-1) On débute avec P1: 
-  	SC slot_lock : 
-      	On a nslots  > 0  donc pas d’attente 
-   	 		nslots passe de 1 à 0 
+1) On débute avec P1:
+   	SC slot_lock : 
+		On a nslots  > 0  donc pas d’attente 
+	nslots passe de 1 à 0 
 
-  	put_item(i) qui dépose et met la file à jour 
+	put_item(i) qui dépose et met la file à jour 
 
-  	SC item_lock : 
-      	nitems = 1 
-      	signal(&items)  
+	SC item_lock : 
+		nitems = 1 
+		signal(&items)  
 
-2) Puis ensuite P2 s'exécute:  
+3) Puis ensuite P2 s'exécute:  
   SC slot_lock : 
     On a nslots  == 0  donc P2 va dans la file d’attente de slot_lock 
     Et on libère la SC slot_lock  
 
-3) Puis ensuite C s'exécute: 
+4) Puis ensuite C s'exécute: 
   SC item_lock : 
     On a nitems  > 0  donc pas d’attente 
     nitems passe de 0 à 1 
